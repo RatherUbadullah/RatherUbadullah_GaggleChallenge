@@ -1,0 +1,82 @@
+﻿/**
+* Template Name: eStartup - v2.1.0
+* Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+@charset "UTF-8";
+
+
+
+
+
+p {
+  color: #505050;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Get Started Section
+--------------------------------*/
+#get-started {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+#get-started .feature-block {
+  background: #fff none repeat scroll 0 0;
+  padding: 30px 20px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+@media (max-width: 991px) {
+  #get-started .feature-block {
+    margin-bottom: 30px;
+  }
+}
+
+#get-started .feature-block:hover {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out 0s;
+}
+
+#get-started .feature-block h4 {
+  margin-bottom: 20px;
+}
+
+#get-started .feature-block p {
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* About Us Section
+--------------------------------*/
+#about-us img {
+  max-width: 100%;
+}
+
+#about-us .about-content {
+  padding-top: 60px;
+}
+
+#about-us .about-content h2 {
+  color: #252525;
+  font-family: "roboto";
+  font-size: 39px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GaggleStoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mobile" Type="int" Nullable="false" />
+    <Property Name="country" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="address1" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="town" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pincode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="description" Type="varchar" MaxLength="300" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="category" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityContainer Name="GaggleStoreDBModelStoreContainer">
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

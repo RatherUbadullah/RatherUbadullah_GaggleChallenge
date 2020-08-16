@@ -1,0 +1,208 @@
+﻿@model GaggleStore.Models.Product
+@using GaggleStore.Controllers;
+
+
+@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>eStore | Products </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/assets/img/favicon.ico">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/assets/css/slicknav.css">
+    <link rel="stylesheet" href="~/Content/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets/css/slick.css">
+    <link rel="stylesheet" href="~/Content/assets/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+
+
+
+
+    <!-- CSS Files -->
+    <link href="~/Content/ProductCss/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/ProductCss/bootstrap/style.css" rel="stylesheet">
+
+    <style>
+        .feature-block {
+            border-style: outset;
+        }
+
+        p {
+            margin-top: -3%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="~/Content/assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                    <a href="~/Home/Index"><img src="~/Content/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="~/Home/Index">Home</a></li>
+                                            <li><a href="~/SearchProducts/Index" style="color:blue;font-weight:bold;">All Products</a></li>
+                                            <li><a href="~/AddProduct/Index">Add Product</a></li>
+                                            <li><a href="~/ModifyProduct/update">Update Product</a></li>
+                                            <li><a href="~/ModifyProduct/Index">Remove Product</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+
+
+
+    <main id="main">
+        <section class="inner-page pt-4">
+
+            <div class="container">
+                <section id="get-started" class="padd-section text-center">
+                    <div class="container">
+                   
+                        <div class="row">
+
+                            @if  (ViewBag.productFound != null)
+                            { 
+                            foreach (var pro in ViewBag.productFound)
+                            {
+
+
+                                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                                    <div class="feature-block">
+
+                                        <h4> @pro.name </h4>
+                                        <p>Category : @pro.category</p>
+                                        <p>Price : @pro.price</p>
+                                        @if (@pro.quantity <= 0)
+                                        {
+                                            <p style="color:red;">Out of Stock !</p>
+                                        }
+                                        else
+                                        {
+                                            <p style="color:blue;">In Stock </p>
+                                        }
+                                        <a href="#"><b> Buy Now</b></a>
+
+                                    </div>
+                                </div>
+
+                            }
+                            }
+                            else
+                            {
+                                <h3 style="text-align:center;">Oops !!! Product Not Found. <a href="~/SearchProducts/Index">Search Another</a></h3>
+                            }
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+
+
+
+
+    <script src="~/Content/ProductCss/jss/jquery.min.js"></script>
+    <script src="~/Content/ProductCss/jss/modal-video.min.js"></script>
+    <script src="~/Content/ProductCss/jss/owl.carousel.min.js"></script>
+    <script src="~/Content/ProductCss/jss/superfish.min.js"></script>
+    <script src="~/Content/ProductCss/jss/aos.js"></script>
+    <script src="~/Content/ProductCss/jss/main.js"></script>
+
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="~/Content/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="~/Content/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="~/Content/assets/js/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="~/Content/assets/js/wow.min.js"></script>
+    <script src="~/Content/assets/js/animated.headline.js"></script>
+    <script src="~/Content/assets/js/jquery.magnific-popup.js"></script>
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="~/Content/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Content/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/assets/js/jquery.sticky.js"></script>
+
+
+
+    <!-- Jquery Plugins, main Jquery -->
+
+    <script src="~/Content/assets/js/main.js"></script>
+
+</body>
+
+</html>  

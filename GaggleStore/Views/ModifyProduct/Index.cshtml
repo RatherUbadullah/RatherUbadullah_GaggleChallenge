@@ -1,0 +1,231 @@
+﻿@model GaggleStore.Models.ProductList
+@using GaggleStore.Controllers;
+
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>eStore | Remove Product </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/assets/css/slicknav.css">
+    <link rel="stylesheet" href="~/Content/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets/css/slick.css">
+    <link rel="stylesheet" href="~/Content/assets/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <style>
+        th{
+                background-color:maroon;
+                color:white;
+                padding-left:30px;
+                width:auto;
+        }
+        td {
+            border-bottom-style: solid;
+            padding-left: 30px;
+        }
+        table{
+            width:90%;
+            margin-left:5%;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="~/Content/assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                    <a href="~/Home/Index"><img src="~/Content/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="~/Home/Index">Home</a></li>
+                                            <li><a href="~/SearchProducts/Index">All Products</a></li>
+                                            <li><a href="~/AddProduct/Index" >Add Product</a></li>
+                                            <li><a href="~/ModifyProduct/update">Update Product</a></li>
+                                            <li><a href="~/ModifyProduct/Index" style="color:blue;font-weight:bold;">Remove Product</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                          
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+
+    <main>
+
+        <div style="text-align:center">
+
+            <h2>List of Available Products :</h2>
+
+
+            <table>
+                <tr>
+                    <th> Name</th>
+                    <th> ID</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>category</th>
+                    <th>Action</th>
+                    
+
+                </tr>
+
+                @foreach (var pro in ViewBag.pList)
+                {
+                    <tr>
+                        <td>@pro.name</td>
+                        <td>@pro.id</td>
+                        <td>@pro.price</td>
+                        <td>@pro.quantity</td>
+                        <td>@pro.category</td>
+                        @using (Html.BeginForm("remove", "ModifyProduct")) { 
+                          @Html.HiddenFor(x => x.id, new { Value= @pro.id})
+                         
+
+                            <td> <button type="submit" class="btn hero-btn" >Remove</button> </td>
+                        }
+                    </tr>
+                }
+
+
+
+
+
+            </table>
+
+
+
+        </div>
+    </main>
+
+
+    <footer>
+
+        <!-- Footer Start-->
+
+        <div class="container" style="margin-top:30%;">
+            <div class="row d-flex justify-content-between">
+
+
+
+                <!-- logo -->
+                <div class="footer-logo">
+                    <a href="index.html"><img src="~/Content/assets/img/logo/logo2_footer.png" alt=""></a>
+                </div>
+
+                <p style="width:100%;padding-top:10px;">This eCommerce Site has been developed as an assignment for <strong>Gaggle </strong></p>
+
+
+            </div>
+            <!-- Footer bottom -->
+
+        </div>
+
+        <!-- Footer End-->
+
+    </footer>
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="~/Content/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="~/Content/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="~/Content/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="~/Content/assets/js/wow.min.js"></script>
+    <script src="~/Content/assets/js/animated.headline.js"></script>
+    <script src="~/Content/assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="~/Content/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Content/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="~/Content/assets/js/contact.js"></script>
+    <script src="~/Content/assets/js/jquery.form.js"></script>
+    <script src="~/Content/assets/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/js/mail-script.js"></script>
+    <script src="~/Content/assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="~/Content/assets/js/plugins.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+
+    <!-- swiper js -->
+    <script src="~/Content/assets/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/Content/assets/js/mixitup.min.js"></script>
+    <script src="~/Content/assets/js/jquery.counterup.min.js"></script>
+    <script src="~/Content/assets/js/waypoints.min.js"></script>
+
+
+</body>
+
+</html>
+
+
+
